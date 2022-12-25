@@ -1,4 +1,3 @@
-from typing import Optional
 
 from .....core.tracing import traced_atomic_transaction
 from .....discount.error_codes import DiscountErrorCode
@@ -91,7 +90,7 @@ class SaleRemoveCatalogues(SaleBaseCatalogueMutation):
     @classmethod
     def remove_items_from_catalogue(
         cls, rules: list[PromotionRule], previous_catalogue_info: CatalogueInfo, input
-    ) -> Optional[dict]:
+    ) -> dict | None:
         if not any(previous_catalogue_info):
             return previous_catalogue_info
 

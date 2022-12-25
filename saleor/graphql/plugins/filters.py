@@ -1,4 +1,3 @@
-from typing import Optional
 
 import graphene
 
@@ -42,7 +41,7 @@ def filter_plugin_by_type(plugins: list[Plugin], type):
     return plugins
 
 
-def filter_plugin_search(plugins: list[Plugin], value: Optional[str]) -> list[Plugin]:
+def filter_plugin_search(plugins: list[Plugin], value: str | None) -> list[Plugin]:
     plugin_fields = ["name", "description"]
     if value is not None:
         return [

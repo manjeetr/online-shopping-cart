@@ -1,4 +1,3 @@
-from typing import Optional
 
 import graphene
 from django.core.exceptions import ValidationError
@@ -153,7 +152,7 @@ class WebhookCreate(ModelMutation, NotifyUserEventValidationMixin):
 
     @classmethod
     def _clean_webhook_events(
-        cls, data, subscription_query: Optional[SubscriptionQuery]
+        cls, data, subscription_query: SubscriptionQuery | None
     ):
         # if `events` field is not empty, use this field. Otherwise get event types
         # from `async_events` and `sync_events`. If the fields are also empty,

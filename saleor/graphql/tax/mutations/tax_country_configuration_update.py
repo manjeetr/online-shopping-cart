@@ -1,4 +1,3 @@
-from typing import Optional
 
 import graphene
 from django.core.exceptions import ValidationError
@@ -104,7 +103,7 @@ class TaxCountryConfigurationUpdate(BaseMutation):
         failed_ids = []
         for item in tax_rate_items:
             global_id = item.get("tax_class_id")
-            pk: Optional[int] = None
+            pk: int | None = None
             if global_id:
                 try:
                     _, node_id = from_global_id_or_error(

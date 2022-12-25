@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Optional
+from typing import TYPE_CHECKING
 
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_ipv46_address
@@ -44,7 +44,7 @@ def get_transaction_item(id: str) -> payment_models.TransactionItem:
 
 
 def clean_customer_ip_address(
-    info, customer_ip_address: Optional[str], error_code: str
+    info, customer_ip_address: str | None, error_code: str
 ):
     """Get customer IP address.
 

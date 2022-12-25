@@ -1,6 +1,5 @@
 import logging
 from collections import namedtuple
-from typing import Optional
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import (
@@ -46,7 +45,7 @@ UUID_IDENTIFIABLE_TYPES = ["User", "App", "AppInstallation"]
 
 
 def handle_thumbnail(
-    request, instance_id: str, size: str, format: Optional[str] = None
+    request, instance_id: str, size: str, format: str | None = None
 ):
     """Create and return thumbnail for given instance in provided size and format.
 
